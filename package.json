@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
+    "start": "concurrently --kill-others --restart-tries=5 \"nx serve author\" \"nx serve book\" \"nx serve gateway\"",
     "build": "nx build",
     "test": "nx test",
     "gateway": "mesh dev --dir apps/gateway/src",
@@ -56,6 +56,7 @@
     "@typescript-eslint/parser": "~5.3.0",
     "babel-jest": "27.2.3",
     "babel-plugin-styled-components": "1.10.7",
+    "concurrently": "^6.5.1",
     "cypress": "^9.1.0",
     "eslint": "8.2.0",
     "eslint-config-prettier": "8.1.0",

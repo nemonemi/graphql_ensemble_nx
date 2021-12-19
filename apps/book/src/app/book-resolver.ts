@@ -82,9 +82,7 @@ const resolvers = {
         };
       }
 
-      const { authorId, ...rest } = bookSearchResult;
-
-      return rest;
+      return bookSearchResult;
     },
     author: (_, { id }) => {
       console.log("Author Id: ", id);
@@ -105,3 +103,4 @@ export default addResolversToSchema({
   schema: schemaDef,
   resolvers,
 });
+

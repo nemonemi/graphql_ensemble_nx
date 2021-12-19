@@ -1,23 +1,18 @@
 type Query {
   books: [Book!]!
-  book(id: ID!): BookResult!
+  book(id: ID!): Book!
   author(id: ID!): Author!
 }
 
 type Book {
   id: ID!
+  authorId: ID!
   title: String!
   numberOfPages: Int!
   coverType: String
   releaseYear: DateTime
   itemsSold: Int
   size: String!
-}
-
-union BookResult = Book | BookDoesNotExistError
-
-type BookDoesNotExistError {
-  message: String!
 }
 
 type Author {

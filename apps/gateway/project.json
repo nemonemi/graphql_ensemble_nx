@@ -27,9 +27,9 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/node:execute",
+      "builder": "@nrwl/workspace:run-commands",
       "options": {
-        "buildTarget": "gateway:build"
+        "command": "mesh dev --dir apps/gateway/src"
       }
     },
     "lint": {

@@ -1,6 +1,6 @@
 import * as express from 'express';
 import { getGraphQLParameters, processRequest, renderGraphiQL, shouldRenderGraphiQL }  from 'graphql-helix';
-import schema  from './app/schema';
+import schema  from './app/book-resolver';
 
 const app = express();
 

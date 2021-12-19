@@ -32,7 +32,20 @@ const resolvers = {
 
       return rest;
     },
+    book: (_, { id }) => {
+      console.log("Book Id: ", id);
+      console.log(
+        "Found author: ",
+        authors.find((author) => author.booksIds.indexOf(Number(id)) !== -1)
+      );
+
+      return {
+        id,
+        author: authors.find((author) => author.booksIds.indexOf(Number(id)) !== -1)
+      };
+    }
   },
+
 
   Mutation: {
     createAuthor: (_, { authorCreateInput }) => {

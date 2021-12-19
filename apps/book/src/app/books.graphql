@@ -1,0 +1,29 @@
+type Query {
+  books: [Book!]!
+  book(id: ID!): BookResult!
+  author(id: ID!): Author!
+}
+
+type Book {
+  id: ID!
+  title: String!
+  numberOfPages: Int!
+  coverType: String
+  releaseYear: DateTime
+  itemsSold: Int
+  size: String!
+}
+
+union BookResult = Book | BookDoesNotExistError
+
+type BookDoesNotExistError {
+  message: String!
+}
+
+type Author {
+  id: ID!
+  books: [Book!]
+}
+
+scalar DateTime
+

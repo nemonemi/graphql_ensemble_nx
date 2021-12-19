@@ -1,7 +1,10 @@
 {
   "version": 2,
   "projects": {
-    "books": "apps/books",
-    "books-e2e": "apps/books-e2e"
+    "author": "apps/author",
+    "book": "apps/book",
+    "gateway": "apps/gateway",
+    "library": "apps/library",
+    "library-e2e": "apps/library-e2e"
   }
 }

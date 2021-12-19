@@ -1,0 +1,70 @@
+{
+  "root": "apps/books",
+  "sourceRoot": "apps/books/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/books",
+        "index": "apps/books/src/index.html",
+        "baseHref": "/",
+        "main": "apps/books/src/main.tsx",
+        "polyfills": "apps/books/src/polyfills.ts",
+        "tsConfig": "apps/books/tsconfig.app.json",
+        "assets": ["apps/books/src/favicon.ico", "apps/books/src/assets"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/books/src/environments/environment.ts",
+              "with": "apps/books/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "books:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "books:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/books/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/books"],
+      "options": {
+        "jestConfig": "apps/books/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
